@@ -1,0 +1,102 @@
+export const skillCategories = [
+  {
+    id: 'languages',
+    label: 'Languages',
+    skills: [
+      { name: 'Core Java',   color: '#f89820', icon: '☕' },
+      { name: 'Java 8+',     color: '#f89820', icon: '⚡' },
+      { name: 'Python',      color: '#3572A5', icon: '🐍' },
+      { name: 'JavaScript',  color: '#F7DF1E', icon: 'JS' },
+      { name: 'C',           color: '#555555', icon: '©️' },
+      { name: 'C++',         color: '#f34b7d', icon: '⚙️' },
+    ],
+  },
+  {
+    id: 'frontend',
+    label: 'Frontend',
+    skills: [
+      { name: 'React',   color: '#61DAFB', icon: '⚛️' },
+      { name: 'Angular', color: '#DD0031', icon: '🅰️' },
+      { name: 'HTML',    color: '#E34F26', icon: '📄' },
+      { name: 'CSS',     color: '#1572B6', icon: '🎨' },
+    ],
+  },
+  {
+    id: 'backend',
+    label: 'Backend',
+    skills: [
+      { name: 'REST APIs', color: '#00C896', icon: '🔌' },
+      { name: 'Microservices Architecture', color: '#7928CA', icon: '🏗️' },
+      { name: 'API Development', color: '#3178C6', icon: '🛠️' },
+    ],
+  },
+  {
+    id: 'frameworks',
+    label: 'Frameworks',
+    skills: [
+      { name: 'Backbase',        color: '#E3000F', icon: '🏦' },
+      { name: 'Spring Boot',     color: '#6DB33F', icon: '🌱' },
+      { name: 'Spring Framework',color: '#6DB33F', icon: '🍃' },
+      { name: 'React',           color: '#61DAFB', icon: '⚛️' },
+      { name: 'Angular',         color: '#DD0031', icon: '🅰️' },
+    ],
+  },
+  {
+    id: 'concepts',
+    label: 'Concepts',
+    skills: [
+      { name: 'OOP',                 color: '#FF6B35', icon: '📐' },
+      { name: 'Data Structures',     color: '#2496ED', icon: '🗂️' },
+      { name: 'Algorithms',          color: '#E8491D', icon: '🧠' },
+      { name: 'Design Patterns',     color: '#7928CA', icon: '🧩' },
+      { name: 'Multithreading',      color: '#00C896', icon: '🧵' },
+      { name: 'Concurrency',         color: '#E8001C', icon: '⚡' },
+      { name: 'HLD / LLD',           color: '#003499', icon: '🏛️' },
+    ],
+  },
+  {
+    id: 'databases',
+    label: 'Databases',
+    skills: [
+      { name: 'Oracle SQL', color: '#C74634', icon: '🛢️' },
+      { name: 'MySQL',      color: '#4479A1', icon: '🐬' },
+      { name: 'PostgreSQL', color: '#336791', icon: '🐘' },
+      { name: 'MongoDB',    color: '#47A248', icon: '🍃' },
+      { name: 'PL/SQL',     color: '#C74634', icon: '📜' },
+    ],
+  },
+  {
+    id: 'devops',
+    label: 'DevOps & Tools',
+    skills: [
+      { name: 'Git',          color: '#F05032', icon: '📦' },
+      { name: 'Docker',       color: '#2496ED', icon: '🐳' },
+      { name: 'Kubernetes',   color: '#326CE5', icon: '☸️' },
+      { name: 'Prometheus',   color: '#E6522C', icon: '🔥' },
+      { name: 'CI/CD',        color: '#FC6D26', icon: '🔄' },
+      { name: 'Azure DevOps', color: '#0078D4', icon: '☁️' },
+      { name: 'Jira',         color: '#0052CC', icon: '📋' },
+    ],
+  },
+  {
+    id: 'testing',
+    label: 'Testing',
+    skills: [
+      { name: 'JUnit',           color: '#25A162', icon: '✅' },
+      { name: 'Mockito',         color: '#00C896', icon: '🎭' },
+      { name: 'TestNG',          color: '#F89820', icon: '🧪' },
+      { name: 'Test Containers', color: '#2496ED', icon: '📦' },
+      { name: 'Unit & Integration Testing', color: '#7928CA', icon: '🔍' },
+    ],
+  },
+  {
+    id: 'other',
+    label: 'Other',
+    skills: [
+      { name: 'Performance Optimization', color: '#00C896', icon: '🚀' },
+      { name: 'Debugging',                color: '#E8001C', icon: '🐛' },
+      { name: 'Production Support',       color: '#3178C6', icon: '🎧' },
+      { name: 'System Reliability',       color: '#003499', icon: '🛡️' },
+    ],
+  },
+];

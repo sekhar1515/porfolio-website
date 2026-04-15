@@ -11,7 +11,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -50,17 +52,18 @@
                 <h2 class="title">Senior Backend Engineer | Distributed Systems</h2>
 
                 <p class="summary">
-                    Senior Backend Engineer with 4+ years of experience building and scaling 
-                    production-grade backend systems using Java (Core Java/Java 8+), Spring Boot, 
-                    and microservices. Strong foundation in data structures, algorithms, concurrency, 
-                    and system design (HLD/LLD). Experienced in developing high-reliability REST APIs, 
-                    implementing rate limiting and security controls, and shipping containerized services 
-                    on Kubernetes with CI/CD automation. Focused on performance, resilience, and secure 
+                    Senior Backend Engineer with 4+ years of experience building and scaling
+                    production-grade backend systems using Java (Core Java/Java 8+), Spring Boot,
+                    and microservices. Strong foundation in data structures, algorithms, concurrency,
+                    and system design (HLD/LLD). Experienced in developing high-reliability REST APIs,
+                    implementing rate limiting and security controls, and shipping containerized services
+                    on Kubernetes with CI/CD automation. Focused on performance, resilience, and secure
                     integrations in high-availability production environments.
                 </p>
 
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/sekharreddy8" target="_blank" class="social-icon" title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/sekharreddy8" target="_blank" class="social-icon"
+                        title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
 
@@ -95,85 +98,150 @@
         </div>
     </section>
 
-   <section id="experience" class="section">
+    <section id="experience" class="section">
         <div class="container">
             <h2 class="section-title">Experience</h2>
-            <div class="timeline">
+            <div class="exp-cards-grid">
 
                 <!-- Oracle -->
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="date">Dec 2025 – Present</div>
-                        <h3 class="job-title">Senior Member of Technical Staff</h3>
-                        <h4 class="company">Oracle (OCI) - Bengaluru</h4>
-                        <ul class="job-details">
-                            <li>Implementing distributed rate-limiting mechanisms to protect high-traffic REST APIs,
-                                enforcing quota limits, burst control, and failure-safe policies to improve
-                                reliability and prevent abuse in multi-tenant environments.</li>
-                        </ul>
+                <div class="exp-card glass-card">
+                    <div class="exp-card-header">
+                        <div class="exp-logo-badge oracle-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="44" height="44">
+                                <rect width="60" height="60" rx="12" fill="#C74634" />
+                                <ellipse cx="30" cy="22" rx="14" ry="5" fill="none" stroke="white" stroke-width="2" />
+                                <ellipse cx="30" cy="30" rx="14" ry="5" fill="none" stroke="white" stroke-width="2" />
+                                <ellipse cx="30" cy="38" rx="14" ry="5" fill="none" stroke="white" stroke-width="2" />
+                                <line x1="16" y1="22" x2="16" y2="38" stroke="white" stroke-width="2" />
+                                <line x1="44" y1="22" x2="44" y2="38" stroke="white" stroke-width="2" />
+                            </svg>
+                        </div>
+                        <div class="exp-header-info">
+                            <h3 class="exp-company-name">Oracle <span class="exp-dept">(OCI)</span></h3>
+                            <p class="exp-location">📍 Bengaluru</p>
+                        </div>
+                        <div class="exp-badge current-badge">Current</div>
+                    </div>
+                    <div class="exp-role">Senior Member of Technical Staff</div>
+                    <div class="exp-date">Dec 2025 – Present</div>
+                    <ul class="exp-details">
+                        <li>Implementing distributed rate-limiting mechanisms to protect high-traffic REST APIs,
+                            enforcing quota limits, burst control, and failure-safe policies to improve reliability and
+                            prevent abuse in multi-tenant environments.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span>Java</span><span>Rate Limiting</span><span>REST APIs</span><span>Distributed
+                            Systems</span>
                     </div>
                 </div>
 
                 <!-- Techolution -->
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="date">Feb 2023 – Dec 2025</div>
-                        <h3 class="job-title">Software Engineer (Backend Focus)</h3>
-                        <h4 class="company">Techolution (MCB) - Remote</h4>
-                        <ul class="job-details">
-                            <li>Led implementation of a scalable SplitBill microservice supporting multi-party
-                                payment orchestration with real-time state tracking and scheduler-driven lifecycle
-                                automation, reducing manual follow-ups by 30%.</li>
-
-                            <li>Improved deployment efficiency by enabling runtime SSL certificate retrieval from
-                                Kubernetes Secrets instead of build-time embedding, reducing deployment time by 80%.</li>
-
-                            <li>Implemented secure NFC tokenization replacing physical card storage with encrypted
-                                digital tokens, reducing sensitive data exposure risk by 40%.</li>
-
-                            <li>Built a high-performance Card Token Lifecycle Management module using multithreading
-                                and concurrent processing, reducing token-processing errors by 25% under load.</li>
-
-                            <li>Contributed to system design discussions, conducted code reviews, and improved
-                                documentation standards, reducing PR rework by 15%.</li>
-
-                            <li>Developed secure Visa encryption and signing framework with keystore/truststore
-                                management and JWS verification to ensure data confidentiality and integrity.</li>
-                        </ul>
+                <div class="exp-card glass-card">
+                    <div class="exp-card-header">
+                        <div class="exp-logo-badge techolution-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="44" height="44">
+                                <rect width="60" height="60" rx="12" fill="url(#tgrad)" />
+                                <defs>
+                                    <linearGradient id="tgrad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#7000ff" />
+                                        <stop offset="100%" stop-color="#00f2ff" />
+                                    </linearGradient>
+                                </defs>
+                                <text x="50%" y="33" font-size="11" font-weight="bold" fill="white" text-anchor="middle"
+                                    font-family="Arial">tech</text>
+                                <text x="50%" y="47" font-size="11" font-weight="bold" fill="white" text-anchor="middle"
+                                    font-family="Arial">olution</text>
+                            </svg>
+                        </div>
+                        <div class="exp-header-info">
+                            <h3 class="exp-company-name">Techolution <span class="exp-dept">(MCB)</span></h3>
+                            <p class="exp-location">📍 Remote</p>
+                        </div>
+                    </div>
+                    <div class="exp-role">Software Engineer — Backend Focus</div>
+                    <div class="exp-date">Feb 2023 – Dec 2025</div>
+                    <ul class="exp-details">
+                        <li>Led SplitBill microservice supporting multi-party payment orchestration, reducing manual
+                            follow-ups by <strong>30%</strong>.</li>
+                        <li>Enabled runtime SSL cert retrieval from Kubernetes Secrets, reducing deployment time by
+                            <strong>80%</strong>.</li>
+                        <li>Implemented secure NFC tokenization, reducing sensitive data exposure risk by
+                            <strong>40%</strong>.</li>
+                        <li>Built Card Token Lifecycle Management using multithreading, reducing errors by
+                            <strong>25%</strong>.</li>
+                        <li>Developed Visa encryption & JWS signing framework ensuring data confidentiality.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span>Microservices</span><span>NFC</span><span>Kubernetes</span><span>Payment</span><span>JWS</span>
                     </div>
                 </div>
 
                 <!-- Bytexl -->
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="date">Nov 2022 – Jan 2023</div>
-                        <h3 class="job-title">Full Stack Developer — Backend Focus</h3>
-                        <h4 class="company">Bytexl - Hyderabad</h4>
-                        <ul class="job-details">
-                            <li>Built optimized Spring Boot APIs with efficient query design to power real-time
-                                trainer analytics dashboards.</li>
-                            <li>Implemented reliable OTP verification workflow using Azure Communication Services
-                                with retry and fallback handling.</li>
-                            <li>Developed scalable CSV ingestion pipeline with validation, batching, and structured
-                                error reporting.</li>
-                        </ul>
+                <div class="exp-card glass-card">
+                    <div class="exp-card-header">
+                        <div class="exp-logo-badge bytexl-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="44" height="44">
+                                <rect width="60" height="60" rx="12" fill="url(#bxgrad)" />
+                                <defs>
+                                    <linearGradient id="bxgrad" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#00c896" />
+                                        <stop offset="100%" stop-color="#00a8cc" />
+                                    </linearGradient>
+                                </defs>
+                                <text x="9" y="27" font-size="13" font-weight="bold" fill="white"
+                                    font-family="Courier New">[&lt;&gt;]</text>
+                                <text x="50%" y="45" font-size="10" font-weight="bold" fill="white" text-anchor="middle"
+                                    font-family="Arial">bytexl</text>
+                            </svg>
+                        </div>
+                        <div class="exp-header-info">
+                            <h3 class="exp-company-name">Bytexl</h3>
+                            <p class="exp-location">📍 Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="exp-role">Full Stack Developer — Backend Focus</div>
+                    <div class="exp-date">Nov 2022 – Jan 2023</div>
+                    <ul class="exp-details">
+                        <li>Built optimized Spring Boot APIs powering real-time trainer analytics dashboards.</li>
+                        <li>Implemented reliable OTP verification using Azure Communication Services with retry/fallback
+                            handling.</li>
+                        <li>Developed scalable CSV ingestion pipeline with validation, batching, and structured error
+                            reporting.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span>Spring Boot</span><span>Azure</span><span>OTP</span><span>REST API</span>
                     </div>
                 </div>
 
                 <!-- Ford -->
-                <div class="timeline-item">
-                    <div class="timeline-content glass-card">
-                        <div class="date">Sep 2021 – Nov 2022</div>
-                        <h3 class="job-title">Junior Engineer — Backend</h3>
-                        <h4 class="company">Ford Smart Mobility - Chennai</h4>
-                        <ul class="job-details">
-                            <li>Developed REST-based backend services improving third-party integration reliability
-                                by 20%.</li>
-                            <li>Optimized large JSON processing workloads using multithreading and parallel streams,
-                                reducing execution time by 30%.</li>
-                            <li>Increased test coverage by 25% using JUnit, Mockito, and TestNG.</li>
-                            <li>Upgraded services from Spring Boot 2.5 to 2.6.9 improving maintainability.</li>
-                        </ul>
+                <div class="exp-card glass-card">
+                    <div class="exp-card-header">
+                        <div class="exp-logo-badge ford-badge">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="44" height="44">
+                                <rect width="60" height="60" rx="12" fill="#003499" />
+                                <ellipse cx="30" cy="30" rx="23" ry="14" fill="none" stroke="white"
+                                    stroke-width="2.5" />
+                                <text x="50%" y="35" font-size="13" font-weight="bold" fill="white" text-anchor="middle"
+                                    font-family="Arial Italic, serif" font-style="italic">Ford</text>
+                            </svg>
+                        </div>
+                        <div class="exp-header-info">
+                            <h3 class="exp-company-name">Ford Smart Mobility</h3>
+                            <p class="exp-location">📍 Chennai</p>
+                        </div>
+                    </div>
+                    <div class="exp-role">Junior Engineer — Backend</div>
+                    <div class="exp-date">Sep 2021 – Nov 2022</div>
+                    <ul class="exp-details">
+                        <li>Developed REST-based backend services, improving third-party integration reliability by
+                            <strong>20%</strong>.</li>
+                        <li>Optimized JSON processing using multithreading & parallel streams, reducing execution time
+                            by <strong>30%</strong>.</li>
+                        <li>Increased test coverage by <strong>25%</strong> using JUnit, Mockito, and TestNG.</li>
+                        <li>Upgraded Spring Boot 2.5 → 2.6.9, improving maintainability.</li>
+                    </ul>
+                    <div class="exp-tags">
+                        <span>Java</span><span>Multithreading</span><span>JUnit</span><span>Spring Boot</span>
                     </div>
                 </div>
 
@@ -181,7 +249,177 @@
         </div>
     </section>
 
- <section id="skills" class="section">
+    <!-- Companies I've Cracked Section -->
+    <section id="companies" class="section companies-section">
+        <div class="container">
+            <h2 class="section-title">Companies I've Cracked</h2>
+            <p class="companies-subtitle">Organizations that trusted my skills through their rigorous hiring process</p>
+            <div class="companies-showcase">
+
+                <div class="company-showcase-card oracle-glow">
+                    <div class="company-logo-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="70" height="70">
+                            <rect width="80" height="80" rx="18" fill="#C74634" />
+                            <ellipse cx="40" cy="28" rx="18" ry="7" fill="none" stroke="white" stroke-width="2.5" />
+                            <ellipse cx="40" cy="40" rx="18" ry="7" fill="none" stroke="white" stroke-width="2.5" />
+                            <ellipse cx="40" cy="52" rx="18" ry="7" fill="none" stroke="white" stroke-width="2.5" />
+                            <line x1="22" y1="28" x2="22" y2="52" stroke="white" stroke-width="2.5" />
+                            <line x1="58" y1="28" x2="58" y2="52" stroke="white" stroke-width="2.5" />
+                        </svg>
+                    </div>
+                    <div class="company-showcase-name">Oracle</div>
+                    <div class="company-showcase-role">Senior MTS</div>
+                    <div class="company-skill-tags">
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#f89820">
+                                <path d="M1.5 16.5L9 3l4.5 7.5L18 7.5l4.5 9H1.5z" />
+                            </svg>
+                            Java
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00f2ff">
+                                <circle cx="12" cy="12" r="10" stroke="#00f2ff" stroke-width="2" fill="none" />
+                                <path d="M12 6v6l4 2" stroke="#00f2ff" stroke-width="2" fill="none" />
+                            </svg>
+                            Distributed Systems
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#7000ff">
+                                <rect x="3" y="3" width="8" height="8" rx="1" />
+                                <rect x="13" y="3" width="8" height="8" rx="1" />
+                                <rect x="3" y="13" width="8" height="8" rx="1" />
+                                <rect x="13" y="13" width="8" height="8" rx="1" />
+                            </svg>
+                            Microservices
+                        </span>
+                    </div>
+                </div>
+
+                <div class="company-showcase-card techolution-glow">
+                    <div class="company-logo-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="70" height="70">
+                            <defs>
+                                <linearGradient id="tg2" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#7000ff" />
+                                    <stop offset="100%" stop-color="#00f2ff" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="80" height="80" rx="18" fill="url(#tg2)" />
+                            <text x="50%" y="38" font-size="14" font-weight="bold" fill="white" text-anchor="middle"
+                                font-family="Arial">tech</text>
+                            <text x="50%" y="56" font-size="14" font-weight="bold" fill="white" text-anchor="middle"
+                                font-family="Arial">olution</text>
+                        </svg>
+                    </div>
+                    <div class="company-showcase-name">Techolution</div>
+                    <div class="company-showcase-role">Software Engineer</div>
+                    <div class="company-skill-tags">
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#326CE5">
+                                <circle cx="12" cy="12" r="3" />
+                                <circle cx="12" cy="12" r="10" stroke="#326CE5" stroke-width="2" fill="none" />
+                            </svg>
+                            Kubernetes
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00c896">
+                                <path d="M4 6l8-4 8 4v6c0 5-8 9-8 9S4 17 4 12V6z" />
+                            </svg>
+                            Security
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#7000ff">
+                                <rect x="2" y="7" width="20" height="14" rx="2" />
+                                <path d="M16 7V5a2 2 0 0 0-4 0v2" />
+                            </svg>
+                            NFC / JWS
+                        </span>
+                    </div>
+                </div>
+
+                <div class="company-showcase-card bytexl-glow">
+                    <div class="company-logo-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="70" height="70">
+                            <defs>
+                                <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#00c896" />
+                                    <stop offset="100%" stop-color="#00a8cc" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="80" height="80" rx="18" fill="url(#bg2)" />
+                            <text x="13" y="38" font-size="18" font-weight="bold" fill="white"
+                                font-family="Courier New">[&lt;&gt;]</text>
+                            <text x="50%" y="58" font-size="13" font-weight="bold" fill="white" text-anchor="middle"
+                                font-family="Arial">bytexl</text>
+                        </svg>
+                    </div>
+                    <div class="company-showcase-name">Bytexl</div>
+                    <div class="company-showcase-role">Full Stack Developer</div>
+                    <div class="company-skill-tags">
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#6db33f">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" />
+                            </svg>
+                            Spring Boot
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#0078D4">
+                                <rect x="2" y="2" width="9" height="9" rx="1" />
+                                <rect x="13" y="2" width="9" height="9" rx="1" />
+                                <rect x="2" y="13" width="9" height="9" rx="1" />
+                                <rect x="13" y="13" width="9" height="9" rx="1" />
+                            </svg>
+                            Azure
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00a8cc">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                            REST APIs
+                        </span>
+                    </div>
+                </div>
+
+                <div class="company-showcase-card ford-glow">
+                    <div class="company-logo-wrap">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="70" height="70">
+                            <rect width="80" height="80" rx="18" fill="#003499" />
+                            <ellipse cx="40" cy="40" rx="32" ry="19" fill="none" stroke="white" stroke-width="3" />
+                            <text x="50%" y="46" font-size="17" font-weight="bold" fill="white" text-anchor="middle"
+                                font-family="Arial Italic, serif" font-style="italic">Ford</text>
+                        </svg>
+                    </div>
+                    <div class="company-showcase-name">Ford Smart Mobility</div>
+                    <div class="company-showcase-role">Junior Engineer</div>
+                    <div class="company-skill-tags">
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#f89820">
+                                <path d="M1.5 16.5L9 3l4.5 7.5L18 7.5l4.5 9H1.5z" />
+                            </svg>
+                            Java
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#25A162">
+                                <path d="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 4l4 8H8l4-8z" />
+                            </svg>
+                            Multithreading
+                        </span>
+                        <span class="skill-chip">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="#00a8cc">
+                                <rect x="4" y="4" width="16" height="16" rx="3" fill="none" stroke="#00a8cc"
+                                    stroke-width="2" />
+                                <path d="M8 12h8M12 8v8" stroke="#00a8cc" stroke-width="2" />
+                            </svg>
+                            JUnit / TestNG
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
         <div class="container">
             <h2 class="section-title">Technical Skills</h2>
             <div class="skills-grid">
@@ -272,7 +510,7 @@
                         <h3>Face Mask Detection</h3>
                         <p class="project-date">May 2021</p>
                         <p>
-                            Built a CNN-based machine learning model achieving 80% accuracy 
+                            Built a CNN-based machine learning model achieving 80% accuracy
                             for real-time face mask detection using computer vision techniques.
                         </p>
                         <div class="tags">
