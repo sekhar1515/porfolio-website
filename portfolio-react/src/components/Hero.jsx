@@ -84,7 +84,7 @@ export default function Hero() {
             {/* Sub-line */}
             <motion.p variants={item}
               className="text-sm md:text-base text-[#a1a1a6] max-w-xl leading-relaxed mb-10">
-              Senior Backend Developer with 4.5+ years of experience building scalable, high-performance backend systems. Skilled in Core Java, J2EE, Spring Boot, REST APIs, microservices, multithreading, concurrency, data structures, algorithms. Strong in debugging, system design, and performance optimization. Proven track record of delivering robust backend solutions in fast-paced environments.
+              Senior Backend Developer with 4.6+ years of experience building scalable, high-performance backend systems. Skilled in Core Java, J2EE, Spring Boot, REST APIs, microservices, multithreading, concurrency, data structures, algorithms. Strong in debugging, system design, and performance optimization. Proven track record of delivering robust backend solutions in fast-paced environments.
             </motion.p>
 
             {/* CTAs */}
