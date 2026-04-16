@@ -2,6 +2,7 @@ export const companies = [
   {
     id: 'oracle',
     name: 'Oracle',
+    domain: 'oracle.com',
     subtitle: 'OCI — Cloud Infrastructure',
     color: '#C74634',
     bgColor: 'rgba(199,70,52,0.1)',
@@ -10,6 +11,7 @@ export const companies = [
   {
     id: 'techolution',
     name: 'Techolution',
+    domain: 'techolution.com',
     subtitle: 'MCB — FinTech',
     color: '#7928CA',
     bgColor: 'rgba(121,40,202,0.1)',
@@ -18,6 +20,7 @@ export const companies = [
   {
     id: 'ford',
     name: 'Ford Smart Mobility',
+    domain: 'ford.com',
     subtitle: 'Automotive Tech',
     color: '#003499',
     bgColor: 'rgba(0,52,153,0.12)',
@@ -26,6 +29,7 @@ export const companies = [
   {
     id: 'bytexl',
     name: 'Bytexl',
+    domain: 'bytexl.com',
     subtitle: 'EdTech Platform',
     color: '#00C896',
     bgColor: 'rgba(0,200,150,0.1)',
@@ -34,6 +38,7 @@ export const companies = [
   {
     id: 'jpmc',
     name: 'JPMorgan Chase',
+    domain: 'jpmorganchase.com',
     subtitle: 'Investment Banking',
     color: '#117ACA',
     bgColor: 'rgba(17,122,202,0.1)',
@@ -42,6 +47,7 @@ export const companies = [
   {
     id: 'interactive_brokers',
     name: 'Interactive Brokers',
+    domain: 'interactivebrokers.com',
     subtitle: 'Electronic Trading',
     color: '#E8001C',
     bgColor: 'rgba(232,0,28,0.1)',
@@ -50,6 +56,7 @@ export const companies = [
   {
     id: 'idfc',
     name: 'IDFC First Bank',
+    domain: 'idfcfirstbank.com',
     subtitle: 'Retail Banking',
     color: '#E8491D',
     bgColor: 'rgba(232,73,29,0.1)',
@@ -58,6 +65,7 @@ export const companies = [
   {
     id: 'morgan_stanley',
     name: 'Morgan Stanley',
+    domain: 'morganstanley.com',
     subtitle: 'Global Finance',
     color: '#002B5C',
     bgColor: 'rgba(0,43,92,0.15)',
@@ -66,6 +74,7 @@ export const companies = [
   {
     id: 'mthree',
     name: 'Wiley Mthree',
+    domain: 'mthree.com',
     subtitle: 'Tech Talent Solutions',
     color: '#FF6B35',
     bgColor: 'rgba(255,107,53,0.1)',
@@ -74,6 +83,7 @@ export const companies = [
   {
     id: 'cognizant',
     name: 'Cognizant',
+    domain: 'cognizant.com',
     subtitle: 'IT Services',
     color: '#1565C0',
     bgColor: 'rgba(21,101,192,0.1)',
@@ -82,6 +92,7 @@ export const companies = [
   {
     id: 'mindtree',
     name: 'Mindtree',
+    domain: 'ltimindtree.com',
     subtitle: 'Digital Transformation',
     color: '#009645',
     bgColor: 'rgba(0,150,69,0.1)',
@@ -90,6 +101,7 @@ export const companies = [
   {
     id: 'accenture',
     name: 'Accenture',
+    domain: 'accenture.com',
     subtitle: 'Consulting & Tech',
     color: '#A100FF',
     bgColor: 'rgba(161,0,255,0.1)',

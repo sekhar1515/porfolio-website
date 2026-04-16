@@ -6,15 +6,18 @@ const container = {
   show: { transition: { staggerChildren: 0.11 } },
 };
 const item = {
-  hidden: { opacity: 0, y: 36 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.25, 0.1, 0.25, 1] } },
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } },
 };
 
 export default function Hero() {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
-  const fadeOp = useTransform(scrollYProgress, [0, 0.55], [1, 0]);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const textY = useTransform(scrollYProgress, [0, 1], ['0%', '40%']);
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '15%']);
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const fadeOp = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
     <section
@@ -47,7 +50,7 @@ export default function Hero() {
         <div className="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
 
           {/* LEFT — text content */}
-          <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
+          <motion.div style={{ y: textY, opacity: fadeOp }} className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
             {/* Status pill */}
             <motion.div variants={item} className="mb-5">
               <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-[#86868b] text-xs tracking-widest uppercase font-medium">
@@ -127,16 +130,16 @@ export default function Hero() {
                 </a>
               ))}
             </motion.div>
-          </div>
+          </motion.div>
 
           {/* RIGHT — profile image */}
           <motion.div
-            variants={item}
+            style={{ y: imageY, scale: imageScale, opacity: fadeOp }}
             className="flex-shrink-0 flex items-center justify-center"
           >
             <motion.div
               whileHover={{ scale: 1.03, rotate: 1 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               className="relative"
             >
               {/* Outer glow ring */}
@@ -173,7 +176,7 @@ export default function Hero() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1.2, duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
+                transition={{ delay: 1.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className="absolute -bottom-4 -right-4 flex items-center gap-2 px-3.5 py-2 rounded-2xl"
                 style={{
                   background: 'rgba(15,15,17,0.95)',

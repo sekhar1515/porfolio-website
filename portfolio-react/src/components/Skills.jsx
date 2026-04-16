@@ -10,14 +10,14 @@ function SkillTile({ skill, index }) {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.04, ease: [0.25, 0.1, 0.25, 1] }}
+      transition={{ duration: 0.6, delay: index * 0.04, ease: [0.16, 1, 0.3, 1] }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="relative flex flex-col items-center gap-2.5 p-4 rounded-2xl cursor-default"
       style={{
         background: hovered ? `${skill.color}14` : 'rgba(255,255,255,0.03)',
         border: `1px solid ${hovered ? `${skill.color}40` : 'rgba(255,255,255,0.07)'}`,
-        transition: 'all 0.3s cubic-bezier(0.25,0.1,0.25,1)',
+        transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
         transform: hovered ? 'translateY(-4px) scale(1.03)' : 'none',
         boxShadow: hovered ? `0 10px 30px ${skill.color}20` : 'none',
       }}
@@ -61,7 +61,7 @@ export default function Skills() {
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-14"
         >
           <p className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">Expertise</p>
@@ -95,7 +95,7 @@ export default function Skills() {
           key={activeTab}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3"
         >
           {active.skills.map((skill, i) => (

@@ -57,7 +57,7 @@ export default function Contact() {
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">Get in touch</p>
           <h2 className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-tight mb-6">
@@ -82,7 +82,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.7 }}
+          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14"
         >
           <a
@@ -101,7 +101,7 @@ export default function Contact() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.35, duration: 0.7 }}
+          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="flex items-center justify-center flex-wrap gap-4"
         >
           {links.map(({ label, href, color, icon }) => (
@@ -136,7 +136,7 @@ export default function Contact() {
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.5, duration: 0.7 }}
+          transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="mt-20 text-[#3a3a3c] text-xs"
         >
           © 2025 Sekhar Reddy · Designed & built with React, Tailwind & Framer Motion

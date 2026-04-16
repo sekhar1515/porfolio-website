@@ -2,6 +2,7 @@ export const experiences = [
   {
     id: 'oracle',
     company: 'Oracle',
+    domain: 'oracle.com',
     dept: 'OCI',
     role: 'Senior Member of Technical Staff',
     period: 'Dec 2025 – April 2026',
@@ -21,6 +22,7 @@ export const experiences = [
   {
     id: 'techolution',
     company: 'Techolution',
+    domain: 'techolution.com',
     dept: 'MCB',
     role: 'Full Stack Developer (Backbase Backend Developer)',
     period: 'Feb 2023 – Dec 2025',
@@ -42,6 +44,7 @@ export const experiences = [
   {
     id: 'bytexl',
     company: 'Bytexl',
+    domain: 'bytexl.com',
     dept: null,
     role: 'Full Stack Developer (Backend Focus)',
     period: 'Nov 2022 – Jan 2023',
@@ -60,6 +63,7 @@ export const experiences = [
   {
     id: 'ford',
     company: 'Ford Smart Mobility',
+    domain: 'ford.com',
     dept: null,
     role: 'Junior Engineer — Backend',
     period: 'Sep 2021 – Nov 2022',

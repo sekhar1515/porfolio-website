@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 
 const navItems = [
   { label: 'About',      href: '#about' },
@@ -11,14 +11,20 @@ const navItems = [
 
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false);
+  const [hidden, setHidden]       = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
   const [active, setActive]       = useState('');
+  const { scrollY } = useScroll();
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (latest > previous && latest > 150 && !menuOpen) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+    setScrolled(latest > 40);
+  });
 
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]');
@@ -35,14 +41,19 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
-        initial={{ y: -80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        variants={{
+          visible: { y: 0, opacity: 1 },
+          hidden: { y: "-100%", opacity: 0 }
+        }}
+        initial="visible"
+        animate={hidden ? "hidden" : "visible"}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
           scrolled
-            ? 'bg-black/80 backdrop-blur-2xl border-b border-white/[0.06]'
+            ? 'bg-black/50 border-b border-white/[0.06]'
             : 'bg-transparent'
         }`}
+        style={scrolled ? { backdropFilter: 'blur(40px) saturate(180%)', WebkitBackdropFilter: 'blur(40px) saturate(180%)' } : {}}
       >
         <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           {/* Logo */}

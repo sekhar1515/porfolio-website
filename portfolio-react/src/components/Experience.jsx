@@ -1,71 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { experiences } from '../data/experienceData';
+import CompanyLogo from './CompanyLogo';
 
-/* ─── Inline SVG Logos ─── */
-function CompanyLogo({ exp, size = 48 }) {
-  const r = Math.round(size * 0.25);
-  const logos = {
-    oracle: (
-      <svg viewBox="0 0 60 60" width={size} height={size} aria-label="Oracle">
-        <rect width="60" height="60" rx={r} fill="#C74634" />
-        {[18, 30, 42].map((cy, i) => (
-          <ellipse key={i} cx="30" cy={cy} rx="16" ry="5.5"
-            fill="none" stroke="white" strokeWidth="2" />
-        ))}
-        <line x1="14" y1="18" x2="14" y2="42" stroke="white" strokeWidth="2" />
-        <line x1="46" y1="18" x2="46" y2="42" stroke="white" strokeWidth="2" />
-      </svg>
-    ),
-    techolution: (
-      <svg viewBox="0 0 60 60" width={size} height={size} aria-label="Techolution">
-        <defs>
-          <linearGradient id={`tg-${size}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#7928CA" />
-            <stop offset="100%" stopColor="#2997ff" />
-          </linearGradient>
-        </defs>
-        <rect width="60" height="60" rx={r} fill={`url(#tg-${size})`} />
-        <text x="30" y="28" fontSize="11" fontWeight="700" fill="white"
-          textAnchor="middle" fontFamily="-apple-system,sans-serif">tech</text>
-        <text x="30" y="42" fontSize="11" fontWeight="700" fill="white"
-          textAnchor="middle" fontFamily="-apple-system,sans-serif">olution</text>
-      </svg>
-    ),
-    bytexl: (
-      <svg viewBox="0 0 60 60" width={size} height={size} aria-label="Bytexl">
-        <defs>
-          <linearGradient id={`bg-${size}`} x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#00C896" />
-            <stop offset="100%" stopColor="#0095c8" />
-          </linearGradient>
-        </defs>
-        <rect width="60" height="60" rx={r} fill={`url(#bg-${size})`} />
-        <text x="30" y="28" fontSize="15" fontWeight="700" fill="white"
-          textAnchor="middle" fontFamily="monospace">{'<>'}</text>
-        <text x="30" y="43" fontSize="9.5" fontWeight="600" fill="white"
-          textAnchor="middle" fontFamily="-apple-system,sans-serif" letterSpacing="1">BYTEXL</text>
-      </svg>
-    ),
-    ford: (
-      <svg viewBox="0 0 60 60" width={size} height={size} aria-label="Ford">
-        <rect width="60" height="60" rx={r} fill="#003499" />
-        <ellipse cx="30" cy="30" rx="24" ry="15" fill="none" stroke="white" strokeWidth="2.2" />
-        <text x="30" y="35" fontSize="14" fontWeight="700" fill="white"
-          textAnchor="middle" fontFamily="Georgia,serif" fontStyle="italic">Ford</text>
-      </svg>
-    ),
-  };
-  return logos[exp.id] ?? (
-    <svg viewBox="0 0 60 60" width={size} height={size}>
-      <rect width="60" height="60" rx={r} fill={exp.color} />
-      <text x="30" y="36" fontSize="16" fontWeight="700" fill="white"
-        textAnchor="middle" fontFamily="-apple-system,sans-serif">
-        {exp.company[0]}
-      </text>
-    </svg>
-  );
-}
+/* CompanyLogo is now a shared component imported above */
 
 /* ─── Mini Card (grid view) ─── */
 function ExperienceCard({ exp, onClick, index }) {
@@ -75,10 +13,10 @@ function ExperienceCard({ exp, onClick, index }) {
   return (
     <motion.article
       ref={ref}
-      initial={{ opacity: 0, y: 44 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay: index * 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-      whileHover={{ y: -5, scale: 1.012 }}
+      initial={{ opacity: 0, y: 50, scale: 0.98 }}
+      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
+      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
+      whileHover={{ y: -5, scale: 1.02 }}
       onClick={() => onClick(exp)}
       role="button"
       tabIndex={0}
@@ -102,7 +40,7 @@ function ExperienceCard({ exp, onClick, index }) {
       {/* Header */}
       <div className="flex items-start justify-between gap-3">
         <div className="flex items-center gap-3">
-          <CompanyLogo exp={exp} size={44} />
+          <CompanyLogo id={exp.id} name={exp.company} domain={exp.domain} initials={exp.logoText} color={exp.color} size={44} />
           <div>
             <div className="flex items-center gap-1.5">
               <h3 className="text-white font-semibold text-[15px]">{exp.company}</h3>
@@ -187,7 +125,7 @@ function FullScreenPanel({ exp, onClose }) {
             initial={{ opacity: 0, scale: 0.94, y: 40 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.96, y: 20 }}
-            transition={{ duration: 0.45, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
             <div
@@ -208,7 +146,7 @@ function FullScreenPanel({ exp, onClose }) {
               >
                 {/* Background large logo watermark */}
                 <div className="absolute right-6 top-4 opacity-[0.06] pointer-events-none">
-                  <CompanyLogo exp={exp} size={120} />
+                  <CompanyLogo id={exp.id} name={exp.company} domain={exp.domain} initials={exp.logoText} color={exp.color} size={120} />
                 </div>
 
                 {/* Close button */}
@@ -230,7 +168,7 @@ function FullScreenPanel({ exp, onClose }) {
                   transition={{ delay: 0.15, duration: 0.5 }}
                   className="flex items-center gap-4 mb-6"
                 >
-                  <CompanyLogo exp={exp} size={52} />
+                  <CompanyLogo id={exp.id} name={exp.company} domain={exp.domain} initials={exp.logoText} color={exp.color} size={52} />
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <h2 className="text-white font-bold text-2xl">{exp.company}</h2>
@@ -354,22 +292,24 @@ export default function Experience() {
 
   return (
     <section id="experience" className="py-32 bg-black px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-          className="text-center mb-16"
-        >
-          <p className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">Career</p>
-          <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight">Work Experience</h2>
-          <p className="text-[#86868b] mt-4 text-base max-w-md mx-auto">
-            Click any card to open the full story.
-          </p>
-        </motion.div>
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
+        <div className="md:w-1/3 relative">
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 40 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="md:sticky md:top-32 text-left"
+          >
+            <p className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">Career</p>
+            <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight leading-[1.1]">Work Experience</h2>
+            <p className="text-[#86868b] mt-5 text-base leading-relaxed">
+              Click any card to open the full story and role details.
+            </p>
+          </motion.div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="md:w-2/3 flex flex-col gap-6">
           {experiences.map((exp, i) => (
             <ExperienceCard key={exp.id} exp={exp} index={i} onClick={setSelected} />
           ))}

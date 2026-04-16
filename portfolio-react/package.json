@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sync-logos": "node scripts/sync-logos.js"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
