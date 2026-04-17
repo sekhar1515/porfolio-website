@@ -18,7 +18,7 @@ export default function App() {
       {/* Fixed dark sky background — behind everything */}
       <DarkSkyCanvas />
 
-      <div className="relative z-10 min-h-screen text-white antialiased" style={{ background: 'transparent' }}>
+      <div className="relative z-10 min-h-screen text-white antialiased" style={{ background: 'transparent', overflowX: 'hidden' }}>
         {/* Scroll progress bar — fixed, z-200, always on top */}
         <ScrollProgress />
 

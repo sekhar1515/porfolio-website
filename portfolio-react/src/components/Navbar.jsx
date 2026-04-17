@@ -143,8 +143,9 @@ export default function Navbar() {
           {/* Hamburger */}
           <button
             onClick={() => setMenuOpen(o => !o)}
-            className="md:hidden flex flex-col gap-[5px] p-2"
+            className="md:hidden flex flex-col gap-[5px] p-3 -mr-1 min-w-[44px] min-h-[44px] items-center justify-center"
             aria-label="Toggle menu"
+            aria-expanded={menuOpen}
           >
             <span className={`block w-5 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-[6.5px]' : ''}`} />
             <span className={`block w-5 h-[1.5px] bg-white transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
@@ -173,7 +174,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: 32 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.08 + i * 0.06, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className={`text-3xl font-light transition-colors ${
+                className={`text-2xl sm:text-3xl font-light transition-colors touch-manipulation min-h-[52px] flex items-center ${
                   active === href.replace('#', '') ? 'text-white' : 'text-white/50 hover:text-white'
                 }`}
               >

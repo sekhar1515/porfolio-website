@@ -68,7 +68,7 @@ export default function Skills() {
   const active = skillCategories.find(c => c.id === activeTab);
 
   return (
-    <section id="skills" className="py-32 px-6 relative" style={{ background: 'transparent' }}>
+    <section id="skills" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative" style={{ background: 'transparent' }}>
       <div className="max-w-5xl mx-auto">
 
         {/* Header — staggered */}
@@ -82,7 +82,7 @@ export default function Skills() {
           <motion.p variants={staggerItem} className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">
             Expertise
           </motion.p>
-          <motion.h2 variants={staggerItem} className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4">
+          <motion.h2 variants={staggerItem} className="text-[clamp(1.9rem,6vw,3rem)] font-semibold text-white tracking-tight mb-4">
             Technical Skills
           </motion.h2>
           <motion.p variants={staggerItem} className="text-[#86868b] text-base max-w-md mx-auto">
@@ -105,7 +105,7 @@ export default function Skills() {
               onClick={() => setActiveTab(cat.id)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.96 }}
-              className={`px-5 py-2 rounded-full text-[14px] font-medium transition-all duration-250 ${
+              className={`px-4 sm:px-5 py-2 rounded-full text-[13px] sm:text-[14px] font-medium min-h-[40px] transition-all duration-250 ${
                 activeTab === cat.id
                   ? 'bg-white text-black shadow-lg shadow-white/10'
                   : 'text-[#c8c8cc] border border-white/10 bg-white/[0.02] hover:text-white hover:border-white/30 hover:bg-white/[0.05]'

@@ -138,7 +138,7 @@ function FullScreenPanel({ exp, onClose }) {
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
             <div
-              className="relative w-full max-w-3xl max-h-[92vh] flex flex-col rounded-3xl overflow-hidden pointer-events-auto"
+              className="relative w-full max-w-3xl max-h-[85dvh] max-h-[85vh] flex flex-col rounded-2xl sm:rounded-3xl overflow-hidden pointer-events-auto"
               style={{
                 background: 'rgba(15, 15, 17, 0.98)',
                 border: '1px solid rgba(255,255,255,0.09)',
@@ -147,7 +147,7 @@ function FullScreenPanel({ exp, onClose }) {
             >
               {/* Header */}
               <div
-                className="relative flex-shrink-0 px-8 py-10 overflow-hidden"
+                className="relative flex-shrink-0 px-4 sm:px-8 py-6 sm:py-10 overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${exp.color}18 0%, transparent 60%)`,
                   borderBottom: '1px solid rgba(255,255,255,0.07)',
@@ -201,7 +201,7 @@ function FullScreenPanel({ exp, onClose }) {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.22, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight" style={{ color: exp.color }}>
+                  <h3 className="text-xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 tracking-tight" style={{ color: exp.color }}>
                     {exp.role}
                   </h3>
                   <div className="flex flex-wrap gap-2.5">
@@ -218,7 +218,7 @@ function FullScreenPanel({ exp, onClose }) {
               </div>
 
               {/* Scrollable content */}
-              <div className="flex-1 overflow-y-auto overscroll-contain px-8 py-8 space-y-8">
+              <div className="flex-1 overflow-y-auto overscroll-contain px-4 sm:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
                 {/* Highlights */}
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
@@ -298,7 +298,7 @@ export default function Experience() {
   const lineInView   = useInView(lineRef,   { once: true, margin: '-120px' });
 
   return (
-    <section id="experience" className="py-32 px-6 relative" style={{ background: 'transparent' }}>
+    <section id="experience" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative" style={{ background: 'transparent' }}>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
 
         {/* Left sticky header */}

@@ -43,7 +43,7 @@ function MarqueePill({ company }) {
       style={{
         background: 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(255,255,255,0.07)',
-        minWidth: '200px',
+        minWidth: 'clamp(160px, 40vw, 200px)',
         transition: 'all 0.45s cubic-bezier(0.16, 1, 0.3, 1)',
         cursor: 'default',
       }}
@@ -115,10 +115,10 @@ export default function Companies() {
   ];
 
   return (
-    <section id="companies" className="py-32 overflow-hidden relative" style={{ background: 'transparent' }}>
+    <section id="companies" className="py-16 sm:py-24 lg:py-32 overflow-hidden relative" style={{ background: 'transparent' }}>
 
       {/* Header */}
-      <div className="max-w-6xl mx-auto px-6 mb-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 mb-12 sm:mb-16">
         <motion.div
           ref={headerRef}
           variants={staggerContainer(0.12, 0)}
@@ -129,7 +129,7 @@ export default function Companies() {
           <motion.p variants={staggerItem} className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">
             Hired by the best
           </motion.p>
-          <motion.h2 variants={staggerItem} className="text-4xl md:text-5xl font-semibold text-white tracking-tight mb-4">
+          <motion.h2 variants={staggerItem} className="text-[clamp(1.9rem,6vw,3rem)] font-semibold text-white tracking-tight mb-4">
             Cracked 12+ Companies
           </motion.h2>
           <motion.p variants={staggerItem} className="text-[#86868b] text-base max-w-md mx-auto">
@@ -154,7 +154,7 @@ export default function Companies() {
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: '-60px' }}
-        className="max-w-4xl mx-auto px-6 mt-20 grid grid-cols-2 md:grid-cols-4 gap-4"
+        className="max-w-4xl mx-auto px-4 sm:px-6 mt-12 sm:mt-20 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
       >
         {stats.map(({ value, label }, i) => (
           <motion.div

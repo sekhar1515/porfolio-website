@@ -111,7 +111,7 @@ export default function DarkSkyCanvas() {
       {/* Far star layer — slowest parallax */}
       <motion.div
         aria-hidden="true"
-        style={{ position: 'absolute', inset: '-20%', y: farY }}
+        style={{ position: 'absolute', inset: 0, y: farY, overflow: 'hidden' }}
       >
         <StarField stars={farStars} />
       </motion.div>
@@ -119,7 +119,7 @@ export default function DarkSkyCanvas() {
       {/* Mid star layer */}
       <motion.div
         aria-hidden="true"
-        style={{ position: 'absolute', inset: '-20%', y: midY }}
+        style={{ position: 'absolute', inset: 0, y: midY, overflow: 'hidden' }}
       >
         <StarField stars={midStars} />
       </motion.div>
@@ -127,7 +127,7 @@ export default function DarkSkyCanvas() {
       {/* Near star layer — most parallax */}
       <motion.div
         aria-hidden="true"
-        style={{ position: 'absolute', inset: '-20%', y: nearY }}
+        style={{ position: 'absolute', inset: 0, y: nearY, overflow: 'hidden' }}
       >
         <StarField stars={nearStars} />
       </motion.div>

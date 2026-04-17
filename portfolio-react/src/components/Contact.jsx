@@ -51,10 +51,10 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="py-32 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
+    <section id="contact" className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
       {/* Ambient glow */}
       <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-48 sm:h-64 pointer-events-none"
         style={{
           background: 'radial-gradient(ellipse at center bottom, rgba(255,255,255,0.03) 0%, transparent 70%)',
           filter: 'blur(40px)',
@@ -76,7 +76,7 @@ export default function Contact() {
 
           <motion.h2
             variants={staggerItem}
-            className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-tight mb-6"
+            className="text-[clamp(1.9rem,7vw,3.75rem)] font-semibold text-white tracking-tight leading-tight mb-6"
           >
             Let's build something
             <br />
@@ -165,7 +165,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.9, duration: 1, ease: 'easeOut' }}
-          className="mt-20 text-[#3a3a3c] text-xs"
+          className="mt-12 sm:mt-20 text-[#3a3a3c] text-xs"
         >
           © 2025 Sekhar Reddy · Designed & built with React, Tailwind & Framer Motion
         </motion.p>
