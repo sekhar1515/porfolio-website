@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { staggerContainer, staggerItem, staggerCard, scaleIn } from '../lib/motionVariants';
 
 const links = [
   {
@@ -50,58 +51,84 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="py-32 px-6 bg-black">
-      <div className="max-w-3xl mx-auto text-center">
-        {/* Header */}
+    <section id="contact" className="py-32 px-6 bg-black relative overflow-hidden">
+      {/* Ambient glow */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(ellipse at center bottom, rgba(0,113,227,0.08) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+        }}
+      />
+
+      <div className="max-w-3xl mx-auto text-center relative z-10">
+
+        {/* Header — full stagger, word by word reveal */}
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          variants={staggerContainer(0.1, 0)}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
         >
-          <p className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">Get in touch</p>
-          <h2 className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-tight mb-6">
+          <motion.p variants={staggerItem} className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">
+            Get in touch
+          </motion.p>
+
+          <motion.h2
+            variants={staggerItem}
+            className="text-4xl md:text-6xl font-semibold text-white tracking-tight leading-tight mb-6"
+          >
             Let's build something
             <br />
-            <span style={{
-              background: 'linear-gradient(135deg, #2997ff 0%, #0071e3 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}>
+            <motion.span
+              variants={scaleIn}
+              style={{
+                background: 'linear-gradient(135deg, #2997ff 0%, #0071e3 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
               great together.
-            </span>
-          </h2>
-          <p className="text-[#86868b] text-base max-w-lg mx-auto leading-relaxed mb-12">
+            </motion.span>
+          </motion.h2>
+
+          <motion.p variants={staggerItem} className="text-[#86868b] text-base max-w-lg mx-auto leading-relaxed mb-12">
             Open to backend engineering roles, distributed systems challenges, and
             interesting collaborations. Drop me a line — I respond quickly.
-          </p>
+          </motion.p>
         </motion.div>
 
         {/* Primary CTA */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.35, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="mb-14"
         >
-          <a
+          <motion.a
             href="mailto:sekharreddy1515@gmail.com"
-            className="inline-flex items-center gap-2.5 bg-[#0071e3] hover:bg-[#0077ed] text-white font-semibold text-base px-8 py-4 rounded-full transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+            className="inline-flex items-center gap-2.5 bg-[#0071e3] text-white font-semibold text-base px-8 py-4 rounded-full"
             style={{ boxShadow: '0 0 40px rgba(0,113,227,0.3)' }}
+            whileHover={{
+              scale: 1.05,
+              boxShadow: '0 0 60px rgba(0,113,227,0.55)',
+            }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             Say Hello
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-          </a>
+          </motion.a>
         </motion.div>
 
-        {/* Social links */}
+        {/* Social links — stagger from below */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          variants={staggerContainer(0.08, 0.45)}
+          initial="hidden"
+          animate={inView ? 'show' : 'hidden'}
           className="flex items-center justify-center flex-wrap gap-4"
         >
           {links.map(({ label, href, color, icon }) => (
@@ -110,11 +137,11 @@ export default function Contact() {
               href={href}
               target={href.startsWith('http') ? '_blank' : '_self'}
               rel="noopener noreferrer"
-              whileHover={{ y: -3, scale: 1.05 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ duration: 0.2 }}
-              className="flex items-center gap-2.5 px-5 py-3 rounded-2xl border border-white/10 bg-white/[0.03] text-[#86868b] hover:text-white transition-colors duration-200 group"
-              style={{ '--hover-color': color }}
+              variants={staggerItem}
+              whileHover={{ y: -4, scale: 1.06 }}
+              whileTap={{ scale: 0.94 }}
+              transition={{ duration: 0.22 }}
+              className="flex items-center gap-2.5 px-5 py-3 rounded-2xl border border-white/10 bg-white/[0.03] text-[#86868b] hover:text-white group"
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = `${color}40`;
                 e.currentTarget.style.background  = `${color}12`;
@@ -125,6 +152,7 @@ export default function Contact() {
                 e.currentTarget.style.background  = 'rgba(255,255,255,0.03)';
                 e.currentTarget.querySelector('.link-icon').style.color = '#86868b';
               }}
+              style={{ transition: 'border-color 0.3s ease, background 0.3s ease' }}
             >
               <span className="link-icon text-[#86868b] transition-colors duration-200">{icon}</span>
               <span className="text-sm font-medium">{label}</span>
@@ -132,11 +160,11 @@ export default function Contact() {
           ))}
         </motion.div>
 
-        {/* Footer line */}
+        {/* Footer */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.4, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.9, duration: 1, ease: 'easeOut' }}
           className="mt-20 text-[#3a3a3c] text-xs"
         >
           © 2025 Sekhar Reddy · Designed & built with React, Tailwind & Framer Motion

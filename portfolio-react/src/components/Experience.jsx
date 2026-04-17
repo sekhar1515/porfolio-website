@@ -2,10 +2,15 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { experiences } from '../data/experienceData';
 import CompanyLogo from './CompanyLogo';
+import {
+  staggerContainer,
+  staggerItem,
+  staggerCard,
+  slideInLeft,
+  lineGrow,
+} from '../lib/motionVariants';
 
-/* CompanyLogo is now a shared component imported above */
-
-/* ─── Mini Card (grid view) ─── */
+/* ─── Mini Card ─── */
 function ExperienceCard({ exp, onClick, index }) {
   const ref    = useRef(null);
   const inView = useInView(ref, { once: true, margin: '-80px' });
@@ -13,25 +18,27 @@ function ExperienceCard({ exp, onClick, index }) {
   return (
     <motion.article
       ref={ref}
-      initial={{ opacity: 0, y: 50, scale: 0.98 }}
-      animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-      transition={{ duration: 0.8, delay: index * 0.1, ease: [0.16, 1, 0.3, 1] }}
-      whileHover={{ y: -5, scale: 1.02 }}
+      variants={staggerCard}
+      initial="hidden"
+      animate={inView ? 'show' : 'hidden'}
+      custom={index}
+      whileHover={{ y: -6, scale: 1.015, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } }}
       onClick={() => onClick(exp)}
       role="button"
       tabIndex={0}
       onKeyDown={e => e.key === 'Enter' && onClick(exp)}
       aria-label={`Open ${exp.company} details`}
-      className="group relative cursor-pointer rounded-2xl p-6 flex flex-col gap-4 overflow-hidden focus:outline-none"
+      className="group relative cursor-pointer rounded-2xl p-6 flex flex-col gap-4 overflow-hidden focus:outline-none focus-visible:ring-2 focus-visible:ring-[#0071e3]"
       style={{
         background: 'rgba(255,255,255,0.04)',
         border: '1px solid rgba(255,255,255,0.08)',
         transition: 'box-shadow 0.35s ease',
+        transitionDelay: `${index * 0.05}s`,
       }}
-      onMouseEnter={e => e.currentTarget.style.boxShadow = `0 20px 60px ${exp.color}18`}
-      onMouseLeave={e => e.currentTarget.style.boxShadow = 'none'}
+      onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 20px 60px ${exp.color}20`)}
+      onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
     >
-      {/* Top accent line */}
+      {/* Top accent line — glides in on hover */}
       <div
         className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         style={{ background: `linear-gradient(90deg, transparent, ${exp.color}, transparent)` }}
@@ -73,9 +80,11 @@ function ExperienceCard({ exp, onClick, index }) {
       {/* Tags */}
       <div className="flex flex-wrap gap-1.5">
         {exp.tags.slice(0, 4).map(tag => (
-          <span key={tag}
+          <span
+            key={tag}
             className="text-[12px] px-2.5 py-0.5 rounded-full border border-white/10 text-[#a1a1a6]"
-            style={{ background: `${exp.color}10` }}>
+            style={{ background: `${exp.color}10` }}
+          >
             {tag}
           </span>
         ))}
@@ -108,24 +117,24 @@ function FullScreenPanel({ exp, onClose }) {
     <AnimatePresence>
       {exp && (
         <>
-          {/* ── Backdrop ── */}
+          {/* Backdrop */}
           <motion.div
             key="fs-backdrop"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-lg"
+            transition={{ duration: 0.35 }}
+            className="fixed inset-0 z-50 bg-black/75 backdrop-blur-xl"
             onClick={onClose}
           />
 
-          {/* ── Panel ── */}
+          {/* Panel — scale + fade from center */}
           <motion.div
             key="fs-panel"
-            initial={{ opacity: 0, scale: 0.94, y: 40 }}
+            initial={{ opacity: 0, scale: 0.92, y: 48 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.96, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            exit={{ opacity: 0, scale: 0.95, y: 24 }}
+            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 pointer-events-none"
           >
             <div
@@ -136,7 +145,7 @@ function FullScreenPanel({ exp, onClose }) {
                 boxShadow: `0 40px 120px rgba(0,0,0,0.85), 0 0 0 0.5px rgba(255,255,255,0.05)`,
               }}
             >
-              {/* ── Hero header (fixed, not scrollable) ── */}
+              {/* Header */}
               <div
                 className="relative flex-shrink-0 px-8 py-10 overflow-hidden"
                 style={{
@@ -144,7 +153,7 @@ function FullScreenPanel({ exp, onClose }) {
                   borderBottom: '1px solid rgba(255,255,255,0.07)',
                 }}
               >
-                {/* Background large logo watermark */}
+                {/* Background watermark logo */}
                 <div className="absolute right-6 top-4 opacity-[0.06] pointer-events-none">
                   <CompanyLogo id={exp.id} name={exp.company} domain={exp.domain} initials={exp.logoText} color={exp.color} size={120} />
                 </div>
@@ -161,11 +170,10 @@ function FullScreenPanel({ exp, onClose }) {
                   </svg>
                 </button>
 
-                {/* Logo + company */}
                 <motion.div
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.15, duration: 0.5 }}
+                  transition={{ delay: 0.15, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   className="flex items-center gap-4 mb-6"
                 >
                   <CompanyLogo id={exp.id} name={exp.company} domain={exp.domain} initials={exp.logoText} color={exp.color} size={52} />
@@ -188,22 +196,20 @@ function FullScreenPanel({ exp, onClose }) {
                   </div>
                 </motion.div>
 
-                {/* Role, period, type */}
                 <motion.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.22, duration: 0.5 }}
+                  transition={{ delay: 0.22, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <h3
-                    className="text-3xl md:text-4xl font-bold mb-4 tracking-tight"
-                    style={{ color: exp.color }}
-                  >
+                  <h3 className="text-3xl md:text-4xl font-bold mb-4 tracking-tight" style={{ color: exp.color }}>
                     {exp.role}
                   </h3>
                   <div className="flex flex-wrap gap-2.5">
                     {[`📅 ${exp.period}`, `📍 ${exp.location}`, `💼 ${exp.type}`].map(m => (
-                      <span key={m}
-                        className="text-[13px] text-[#a1a1a6] border border-white/10 px-3.5 py-1 rounded-full bg-white/[0.04]">
+                      <span
+                        key={m}
+                        className="text-[13px] text-[#a1a1a6] border border-white/10 px-3.5 py-1 rounded-full bg-white/[0.04]"
+                      >
                         {m}
                       </span>
                     ))}
@@ -211,13 +217,13 @@ function FullScreenPanel({ exp, onClose }) {
                 </motion.div>
               </div>
 
-              {/* ── Scrollable content ── */}
+              {/* Scrollable content */}
               <div className="flex-1 overflow-y-auto overscroll-contain px-8 py-8 space-y-8">
                 {/* Highlights */}
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3, duration: 0.5 }}
+                  transition={{ delay: 0.3, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <p className="text-[11px] text-[#a1a1a6] uppercase tracking-[0.25em] font-medium mb-5">
                     Key Contributions
@@ -226,9 +232,9 @@ function FullScreenPanel({ exp, onClose }) {
                     {exp.highlights.map((h, i) => (
                       <motion.li
                         key={i}
-                        initial={{ opacity: 0, x: -12 }}
+                        initial={{ opacity: 0, x: -14 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.35 + i * 0.07, duration: 0.4 }}
+                        transition={{ delay: 0.35 + i * 0.06, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                         className="flex gap-3.5 text-[15.5px] text-white/85 leading-[1.65]"
                       >
                         <span
@@ -238,9 +244,7 @@ function FullScreenPanel({ exp, onClose }) {
                         <div>
                           {h.split('**').map((part, index) =>
                             index % 2 === 1 ? (
-                              <strong key={index} className="text-white font-bold tracking-wide">
-                                {part}
-                              </strong>
+                              <strong key={index} className="text-white font-bold tracking-wide">{part}</strong>
                             ) : (
                               part
                             )
@@ -255,15 +259,16 @@ function FullScreenPanel({ exp, onClose }) {
                 <motion.div
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.55, duration: 0.45 }}
+                  transition={{ delay: 0.55, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   className="pt-6 border-t border-white/[0.06]"
                 >
                   <p className="text-[11px] text-[#a1a1a6] uppercase tracking-[0.25em] font-medium mb-4">Tech Stack</p>
                   <div className="flex flex-wrap gap-2.5">
                     {exp.tags.map(tag => (
-                      <span
+                      <motion.span
                         key={tag}
-                        className="text-[13px] font-medium px-3.5 py-1.5 rounded-full border transition-colors"
+                        whileHover={{ scale: 1.07 }}
+                        className="text-[13px] font-medium px-3.5 py-1.5 rounded-full border transition-colors cursor-default"
                         style={{
                           color: exp.color,
                           borderColor: `${exp.color}40`,
@@ -271,7 +276,7 @@ function FullScreenPanel({ exp, onClose }) {
                         }}
                       >
                         {tag}
-                      </span>
+                      </motion.span>
                     ))}
                   </div>
                 </motion.div>
@@ -287,33 +292,63 @@ function FullScreenPanel({ exp, onClose }) {
 /* ─── Section ─── */
 export default function Experience() {
   const [selected, setSelected] = useState(null);
-  const ref    = useRef(null);
-  const inView = useInView(ref, { once: true, margin: '-100px' });
+  const headerRef = useRef(null);
+  const lineRef   = useRef(null);
+  const headerInView = useInView(headerRef, { once: true, margin: '-80px' });
+  const lineInView   = useInView(lineRef,   { once: true, margin: '-120px' });
 
   return (
     <section id="experience" className="py-32 bg-black px-6">
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
+
+        {/* Left sticky header */}
         <div className="md:w-1/3 relative">
+          {/* Animated vertical timeline line */}
+          <div
+            ref={lineRef}
+            className="hidden md:block absolute left-0 top-0 bottom-0 w-px -ml-6"
+            style={{ background: 'rgba(255,255,255,0.06)' }}
+          >
+            <motion.div
+              variants={lineGrow}
+              initial="hidden"
+              animate={lineInView ? 'show' : 'hidden'}
+              className="w-full h-full origin-top"
+              style={{ background: 'linear-gradient(180deg, #0071e3 0%, transparent 100%)', scaleY: 0 }}
+            />
+          </div>
+
           <motion.div
-            ref={ref}
-            initial={{ opacity: 0, y: 40 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            ref={headerRef}
+            variants={staggerContainer(0.12, 0)}
+            initial="hidden"
+            animate={headerInView ? 'show' : 'hidden'}
             className="md:sticky md:top-32 text-left"
           >
-            <p className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">Career</p>
-            <h2 className="text-4xl md:text-5xl font-semibold text-white tracking-tight leading-[1.1]">Work Experience</h2>
-            <p className="text-[#86868b] mt-5 text-base leading-relaxed">
+            <motion.p variants={staggerItem} className="text-xs text-[#86868b] uppercase tracking-[0.2em] mb-4">
+              Career
+            </motion.p>
+            <motion.h2 variants={staggerItem} className="text-4xl md:text-5xl font-semibold text-white tracking-tight leading-[1.1]">
+              Work Experience
+            </motion.h2>
+            <motion.p variants={staggerItem} className="text-[#86868b] mt-5 text-base leading-relaxed">
               Click any card to open the full story and role details.
-            </p>
+            </motion.p>
           </motion.div>
         </div>
 
-        <div className="md:w-2/3 flex flex-col gap-6">
+        {/* Right cards grid */}
+        <motion.div
+          variants={staggerContainer(0.1, 0.15)}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-60px' }}
+          className="md:w-2/3 flex flex-col gap-6"
+        >
           {experiences.map((exp, i) => (
             <ExperienceCard key={exp.id} exp={exp} index={i} onClick={setSelected} />
           ))}
-        </div>
+        </motion.div>
       </div>
 
       <AnimatePresence mode="wait">
