@@ -6,11 +6,19 @@ import Skills from './components/Skills';
 import Companies from './components/Companies';
 import Contact from './components/Contact';
 import ScrollProgress from './components/ScrollProgress';
+import PageLoader from './components/PageLoader';
+import DarkSkyCanvas from './components/DarkSkyCanvas';
 
 export default function App() {
   return (
     <LazyMotion features={domAnimation}>
-      <div className="bg-black min-h-screen text-white antialiased">
+      {/* Cinematic page loading spinner — fades out after ~1.2s */}
+      <PageLoader duration={1200} />
+
+      {/* Fixed dark sky background — behind everything */}
+      <DarkSkyCanvas />
+
+      <div className="relative z-10 min-h-screen text-white antialiased" style={{ background: 'transparent' }}>
         {/* Scroll progress bar — fixed, z-200, always on top */}
         <ScrollProgress />
 
@@ -19,7 +27,7 @@ export default function App() {
         <main>
           <Hero />
 
-          {/* Subtle section divider glow */}
+          {/* Subtle section divider */}
           <div className="section-glow-divider" />
 
           <Experience />

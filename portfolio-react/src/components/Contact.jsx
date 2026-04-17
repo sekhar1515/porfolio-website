@@ -51,12 +51,12 @@ export default function Contact() {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="py-32 px-6 bg-black relative overflow-hidden">
+    <section id="contact" className="py-32 px-6 relative overflow-hidden" style={{ background: 'transparent' }}>
       {/* Ambient glow */}
       <div
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] pointer-events-none"
         style={{
-          background: 'radial-gradient(ellipse at center bottom, rgba(0,113,227,0.08) 0%, transparent 70%)',
+          background: 'radial-gradient(ellipse at center bottom, rgba(255,255,255,0.03) 0%, transparent 70%)',
           filter: 'blur(40px)',
         }}
       />

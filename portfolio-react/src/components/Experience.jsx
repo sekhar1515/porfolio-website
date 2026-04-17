@@ -298,7 +298,7 @@ export default function Experience() {
   const lineInView   = useInView(lineRef,   { once: true, margin: '-120px' });
 
   return (
-    <section id="experience" className="py-32 bg-black px-6">
+    <section id="experience" className="py-32 px-6 relative" style={{ background: 'transparent' }}>
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
 
         {/* Left sticky header */}
@@ -314,7 +314,7 @@ export default function Experience() {
               initial="hidden"
               animate={lineInView ? 'show' : 'hidden'}
               className="w-full h-full origin-top"
-              style={{ background: 'linear-gradient(180deg, #0071e3 0%, transparent 100%)', scaleY: 0 }}
+              style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.3) 0%, transparent 100%)', scaleY: 0 }}
             />
           </div>
 

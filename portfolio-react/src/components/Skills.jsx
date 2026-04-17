@@ -68,7 +68,7 @@ export default function Skills() {
   const active = skillCategories.find(c => c.id === activeTab);
 
   return (
-    <section id="skills" className="py-32 px-6" style={{ background: '#0a0a0a' }}>
+    <section id="skills" className="py-32 px-6 relative" style={{ background: 'transparent' }}>
       <div className="max-w-5xl mx-auto">
 
         {/* Header — staggered */}

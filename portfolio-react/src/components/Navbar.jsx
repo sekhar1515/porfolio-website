@@ -72,7 +72,7 @@ export default function Navbar() {
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
           scrolled
-            ? 'bg-black/50 border-b border-white/[0.06]'
+            ? 'bg-black/70 border-b border-white/[0.07]'
             : 'bg-transparent'
         }`}
         style={scrolled
@@ -119,7 +119,7 @@ export default function Navbar() {
                       <motion.span
                         layoutId="nav-indicator"
                         className="absolute -bottom-0.5 left-0 right-0 h-px"
-                        style={{ background: '#0071e3' }}
+                        style={{ background: 'rgba(255,255,255,0.65)' }}
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}

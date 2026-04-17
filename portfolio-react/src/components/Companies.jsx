@@ -115,7 +115,7 @@ export default function Companies() {
   ];
 
   return (
-    <section id="companies" className="py-32 bg-black overflow-hidden">
+    <section id="companies" className="py-32 overflow-hidden relative" style={{ background: 'transparent' }}>
 
       {/* Header */}
       <div className="max-w-6xl mx-auto px-6 mb-16">
@@ -167,7 +167,7 @@ export default function Companies() {
               border: '1px solid rgba(255,255,255,0.06)',
               transition: 'box-shadow 0.35s ease',
             }}
-            onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 16px 48px rgba(0,113,227,0.12)')}
+            onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 16px 48px rgba(255,255,255,0.06)')}
             onMouseLeave={e => (e.currentTarget.style.boxShadow = 'none')}
           >
             <p className="text-3xl font-semibold text-white mb-1">

@@ -23,7 +23,6 @@
 /* ─── HTML / body ─── */
 html {
   scroll-behavior: smooth;
-  /* Offset for fixed navbar (56px) on anchor clicks */
   scroll-padding-top: 56px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -39,11 +38,11 @@ body {
 /* ─── Custom scrollbar ─── */
 ::-webkit-scrollbar        { width: 5px; }
 ::-webkit-scrollbar-track  { background: #000; }
-::-webkit-scrollbar-thumb  { background: #2a2a2a; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #444; }
+::-webkit-scrollbar-thumb  { background: #1e1e1e; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #333; }
 
 /* ─── Text selection ─── */
-::selection { background: rgba(0, 113, 227, 0.28); color: #fff; }
+::selection { background: rgba(255, 255, 255, 0.12); color: #fff; }
 
 /* ─── Gradient text utilities ─── */
 .gradient-text {
@@ -95,29 +94,29 @@ body {
   z-index: 0;
 }
 
-/* ─── Section glow divider — atmospheric line between sections ─── */
+/* ─── Section glow divider — neutral silver, no blue ─── */
 .section-glow-divider {
   height: 1px;
   width: 100%;
   background: linear-gradient(90deg,
     transparent 0%,
     rgba(255, 255, 255, 0.04) 20%,
-    rgba(0, 113, 227, 0.08) 50%,
+    rgba(255, 255, 255, 0.07) 50%,
     rgba(255, 255, 255, 0.04) 80%,
     transparent 100%
   );
   position: relative;
+  z-index: 2;
 }
-.section-glow-divider::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 60px;
-  top: -30px;
-  background: radial-gradient(ellipse at center, rgba(0, 113, 227, 0.06) 0%, transparent 70%);
-  pointer-events: none;
+
+/* ─── Star twinkle animation (used by DarkSkyCanvas) ─── */
+@keyframes twinkle {
+  0%, 100% { opacity: 1;    transform: scale(1);   }
+  50%       { opacity: 0.3; transform: scale(0.75); }
+}
+
+.star-dot {
+  animation: twinkle ease-in-out infinite;
 }
 
 /* ─── Marquee animations ─── */
@@ -136,7 +135,7 @@ body {
   100% { transform: translateX(0); }
 }
 
-/* ─── Shimmer — for future loading states ─── */
+/* ─── Shimmer — for loading skeletons ─── */
 @keyframes shimmer {
   0%   { background-position: -600px 0; }
   100% { background-position: 600px 0; }
@@ -156,4 +155,21 @@ body {
 .section-reveal.visible {
   opacity: 1;
   transform: translateY(0) scale(1);
+}
+
+/* ─── Reduced motion — disable all animations for accessibility ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .star-dot {
+    animation: none !important;
+    opacity: 0.15 !important;
+  }
 }

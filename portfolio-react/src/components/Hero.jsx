@@ -65,27 +65,26 @@ export default function Hero() {
     <section
       id="about"
       ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black px-6"
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden px-6"
+      style={{ background: 'transparent' }}
     >
-      {/* ── Parallax ambient glows ── */}
+      {/* ── Parallax depth layer — very faint, cinematic charcoal cloud ── */}
       <motion.div style={{ y: bgY, opacity: fadeOp }} className="absolute inset-0 pointer-events-none">
-        <motion.div
-          animate={{ scale: [1, 1.08, 1], opacity: [0.06, 0.09, 0.06] }}
-          transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-[#0071e3] blur-[140px]"
+        {/* Soft hero vignette — grounds the content area */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,255,255,0.015) 0%, transparent 70%)',
+          }}
         />
-        <div className="absolute top-1/4 right-1/4 w-[380px] h-[380px] rounded-full bg-purple-700 opacity-[0.04] blur-[110px]" />
-        <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] rounded-full bg-[#2997ff] opacity-[0.03] blur-[90px]" />
+        {/* Deep shadow anchor at bottom */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-64"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.35))',
+          }}
+        />
       </motion.div>
-
-      {/* ── Subtle grid ── */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.018]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.6) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.6) 1px,transparent 1px)`,
-          backgroundSize: '72px 72px',
-        }}
-      />
 
       {/* ── Main content ── */}
       <motion.div
@@ -220,12 +219,12 @@ export default function Hero() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="relative"
             >
-              {/* Outer glow ring */}
+              {/* Outer glow ring — neutral white halo */}
               <motion.div
-                animate={{ opacity: [0.2, 0.35, 0.2] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                animate={{ opacity: [0.06, 0.13, 0.06] }}
+                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                 className="absolute inset-0 rounded-3xl blur-2xl"
-                style={{ background: 'radial-gradient(circle, #0071e3 0%, transparent 70%)' }}
+                style={{ background: 'radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)' }}
               />
 
               {/* Image container */}
