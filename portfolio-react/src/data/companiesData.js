@@ -1,5 +1,14 @@
 export const companies = [
   {
+    id: 'tesco',
+    name: 'Tesco',
+    domain: 'tesco.com',
+    subtitle: 'Retail & Tech',
+    color: '#00539F',
+    bgColor: 'rgba(0,83,159,0.1)',
+    initials: 'TSC',
+  },
+  {
     id: 'oracle',
     name: 'Oracle',
     domain: 'oracle.com',

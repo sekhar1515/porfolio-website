@@ -150,7 +150,7 @@ export default function Skills() {
             viewport={{ once: true }}
             className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto"
           >
-            {skillCategories.flatMap(c => c.skills).map((skill, i) => (
+            {Array.from(new Map(skillCategories.flatMap(c => c.skills).map(s => [s.name, s])).values()).map((skill, i) => (
               <motion.span
                 key={skill.name}
                 variants={staggerPill}

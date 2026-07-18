@@ -1,5 +1,23 @@
 export const experiences = [
   {
+    id: 'tesco',
+    company: 'Tesco (via Xebia)',
+    domain: 'tesco.com',
+    dept: 'Tesco Tills',
+    role: 'Senior Consultant',
+    period: 'April 2026 – Present',
+    location: 'Bengaluru, India',
+    type: 'Full-time',
+    current: true,
+    teaser: 'Diagnosed and resolved critical production logging discrepancies and ThreadLocal context leakage in co-deployed services on Tesco Tills.',
+    color: '#00539F',
+    logoText: 'TSC',
+    highlights: [
+      '**Production Debugging and ThreadLocal Context Leakage Fix:** Diagnosed and resolved a production logging discrepancy in a co-deployed Micronaut service running on Tesco Tills by analyzing Splunk and application logs. Traced stale endpoint metadata to ThreadLocal context leakage caused by repeated Reactor scheduler decoration within a cron pipeline, improving logging accuracy and preventing incorrect scheduler context propagation.',
+    ],
+    tags: ['Micronaut', 'Reactor', 'ThreadLocal', 'Splunk', 'Production Debugging', 'Java', 'Performance Tuning'],
+  },
+  {
     id: 'oracle',
     company: 'Oracle',
     domain: 'oracle.com',

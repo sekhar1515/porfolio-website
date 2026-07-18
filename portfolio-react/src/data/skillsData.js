@@ -23,11 +23,16 @@ export const skillCategories = [
   },
   {
     id: 'backend',
-    label: 'Backend',
+    label: 'Backend & Architecture',
     skills: [
+      { name: 'Spring Boot', color: '#6DB33F', icon: '🌱' },
+      { name: 'Spring Framework', color: '#6DB33F', icon: '🍃' },
       { name: 'REST APIs', color: '#00C896', icon: '🔌' },
-      { name: 'Microservices Architecture', color: '#7928CA', icon: '🏗️' },
-      { name: 'API Development', color: '#3178C6', icon: '🛠️' },
+      { name: 'Microservices', color: '#7928CA', icon: '🏗️' },
+      { name: 'Distributed Systems', color: '#0071e3', icon: '🌐' },
+      { name: 'Event-Driven Architecture', color: '#FF9900', icon: '⚡' },
+      { name: 'Kafka', color: '#ffffff', icon: '🪵' },
+      { name: 'Asynchronous Messaging', color: '#00C896', icon: '💬' },
     ],
   },
   {
@@ -52,6 +57,7 @@ export const skillCategories = [
       { name: 'Multithreading',      color: '#00C896', icon: '🧵' },
       { name: 'Concurrency',         color: '#E8001C', icon: '⚡' },
       { name: 'HLD / LLD',           color: '#003499', icon: '🏛️' },
+      { name: 'System Design',       color: '#0071e3', icon: '🏗️' },
     ],
   },
   {
@@ -90,13 +96,26 @@ export const skillCategories = [
     ],
   },
   {
+    id: 'ai',
+    label: 'AI & Productivity',
+    skills: [
+      { name: 'GitHub Copilot', color: '#6A0DAD', icon: '🤖' },
+      { name: 'ChatGPT', color: '#10a37f', icon: '💬' },
+      { name: 'Claude', color: '#D97706', icon: '🧠' },
+      { name: 'Cursor', color: '#3b82f6', icon: '🚀' },
+      { name: 'AI-Assisted Development', color: '#8b5cf6', icon: '⚡' },
+      { name: 'Prompt Engineering', color: '#ec4899', icon: '✍️' },
+    ],
+  },
+  {
     id: 'other',
-    label: 'Other',
+    label: 'Engineering Strengths',
     skills: [
       { name: 'Performance Optimization', color: '#00C896', icon: '🚀' },
       { name: 'Debugging',                color: '#E8001C', icon: '🐛' },
       { name: 'Production Support',       color: '#3178C6', icon: '🎧' },
       { name: 'System Reliability',       color: '#003499', icon: '🛡️' },
+      { name: 'Observability',            color: '#7928CA', icon: '📊' },
     ],
   },
 ];

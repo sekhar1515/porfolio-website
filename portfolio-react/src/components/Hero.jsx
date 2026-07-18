@@ -144,7 +144,7 @@ export default function Hero() {
 
             {/* Bio */}
             <motion.p variants={heroSubtle} className="text-sm md:text-base text-[#a1a1a6] max-w-xl leading-relaxed mb-8 md:mb-10">
-              Senior Backend Developer with 4.6+ years of experience building scalable, high-performance backend systems. Skilled in Core Java, J2EE, Spring Boot, REST APIs, microservices, multithreading, concurrency, data structures, algorithms. Strong in debugging, system design, and performance optimization.
+              Senior Backend Developer with 5+ years of experience designing scalable, high-performance backend systems using Java, Spring Boot, REST APIs, Kafka, microservices, and event-driven architectures. Strong in distributed system design, asynchronous messaging, performance optimization, and debugging complex production issues. Experienced in building resilient, AI-enhanced backend solutions.
             </motion.p>
 
             {/* CTAs — full-width on mobile, auto on sm+ */}
@@ -284,7 +284,7 @@ export default function Hero() {
                   boxShadow: '0 8px 30px rgba(0,0,0,0.5)',
                 }}
               >
-                <span className="text-[#0071e3] text-xs font-bold">4.6+</span>
+                <span className="text-[#0071e3] text-xs font-bold">5+</span>
                 <span className="text-white/60 text-[10px] sm:text-[11px]">yrs exp</span>
               </motion.div>
             </motion.div>

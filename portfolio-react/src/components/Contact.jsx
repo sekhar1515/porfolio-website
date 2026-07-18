@@ -167,7 +167,7 @@ export default function Contact() {
           transition={{ delay: 0.9, duration: 1, ease: 'easeOut' }}
           className="mt-12 sm:mt-20 text-[#3a3a3c] text-xs"
         >
-          © 2025 Sekhar Reddy · Designed & built with React, Tailwind & Framer Motion
+          © 2026 Sekhar Reddy · Designed & built with React, Tailwind & Framer Motion
         </motion.p>
       </div>
     </section>
