@@ -21,19 +21,12 @@ function smoothScrollTo(id) {
 
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false);
-  const [hidden, setHidden]       = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
   const [active, setActive]       = useState('about');
   const { scrollY } = useScroll();
 
-  /* ── Hide / show navbar on scroll direction ── */
+  /* ── Detect scroll state ── */
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    const previous = scrollY.getPrevious() ?? 0;
-    if (latest > previous && latest > 150 && !menuOpen) {
-      setHidden(true);
-    } else {
-      setHidden(false);
-    }
     setScrolled(latest > 40);
   });
 
@@ -68,7 +61,7 @@ export default function Navbar() {
           hidden:  { y: '-100%', opacity: 0 },
         }}
         initial="visible"
-        animate={hidden ? 'hidden' : 'visible'}
+        animate="visible"
         transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
           scrolled
